@@ -1,7 +1,7 @@
 # TeamProjectFe
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
-This is the frontend for the web application, the backend for it can be found at 
+This is the frontend for the web application, the backend for it can be found at https://github.com/PMT13/holy-donuts-app-be
 
 ## Development server
 
