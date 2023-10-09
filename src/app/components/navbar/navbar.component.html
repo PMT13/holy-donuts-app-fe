@@ -1,0 +1,32 @@
+<nav class="navbar justify-content-lg-start navbar-dark bg-dark" >
+    <h1>H</h1><img alt="donut home" (click)="goHome(role)" src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/24912/donut-with-sprinkles-1200-x900-clipart-xl.png" width="5%" height="5%">
+    <h1>LY DONUTS!</h1>
+    <div class="navTabs" *ngIf="isLoggedIn === true">
+      <div *ngIf="role === 'administrator'">
+        <button class="btn btn-outline-primary nav-item" (click)="goHome(role)">Accounts</button>
+      </div>
+      <ul>
+        <button class="btn btn-outline-primary nav-item" (click)="onStoreClick()">Store</button>
+      </ul>
+      <ul>
+        <button class="btn btn-outline-primary nav-item" (click)="onCartClick()">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z"/>
+          </svg> Cart</button>
+      </ul>
+      <ul>
+        <button class="btn btn-outline-primary nav-item" (click)="onProfileClick()">Profile</button>
+      </ul>
+      <ul>
+        <button class="btn btn-outline-primary nav-item" (click)="onRegisterClick()">Logout</button>
+      </ul>
+    </div>
+    <ul class="nav navbar-nav" *ngIf="isLoggedIn !== true">
+      <button class="btn btn-outline-primary nav-item" id="login" (click)="onRegisterClick()">Login</button>
+    </ul>
+</nav>
+
+<app-login *ngIf="isRegistering" (changeRole)="onLogin($event)"></app-login>
+<app-store *ngIf="isViewingStore"></app-store>
+<app-cart *ngIf="isViewingCart"></app-cart>
+<app-profile *ngIf="isViewingProfile"></app-profile>

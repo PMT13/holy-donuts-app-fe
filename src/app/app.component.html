@@ -1,0 +1,4 @@
+<app-navbar (changeRole)="changeRole($event)"></app-navbar>
+<app-admin *ngIf="role === 'administrator'"></app-admin>
+<app-store *ngIf="role === 'customer'"></app-store>
+<app-store *ngIf="role === 'shopkeeper'"></app-store>

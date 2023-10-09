@@ -1,0 +1,105 @@
+<div class="card shadow">
+  <div class="card-body">
+    <h1 class="text-center">Accounts</h1>
+<div class="text-center">
+  <button class="btn btn-primary" (click)="openCreate(create)">Create Account</button>
+</div>
+<table class="table">
+  <thead class="thead-dark">
+  <tr>
+    <th scope="col">Id</th>
+    <th scope="col">Username</th>
+    <th scope="col">Password</th>
+    <th scope="col">Email</th>
+    <th scope="col">Role</th>
+    <th></th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let account of this.accountList">
+      <th scope="row">{{account.id}}</th>
+      <td>{{account.username}}</td>
+      <td>{{account.password}}</td>
+      <td>{{account.email}}</td>
+      <td>{{account.role}}</td>
+      <td>
+        <i class="bi bi-pencil-fill" (click)="open(content,account)"></i>
+        <i class="bi bi-trash3-fill" (click)="deleteAccount(account.id)" *ngIf="user.username !== account.username"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit Account: </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');resetInput()"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <div class="alert alert-danger" role="alert" *ngIf="error === true">{{errorMsg}}</div>
+        <label for="username">Username:</label>
+        <div class="input-group">
+          <input id="username" class="form-control" type="text" name="username" [(ngModel)]="username" required>
+        </div>
+        <label for="password">Password:</label>
+        <div class="input-group">
+          <input id="password" name="password" class="form-control" type="text" [(ngModel)]="password" required>
+        </div>
+        <label for="email">Email:</label>
+        <div class="input-group">
+          <input id="email" class="form-control" type="text" name="email" [(ngModel)]="email" required>
+        </div>
+        <div class="input-group" *ngIf="accountToEdit.username !== user.username">
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option1" value="customer"
+                   [(ngModel)]="role"> Customer
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option2" value="shopkeeper"
+                   [(ngModel)]="role"> Shopkeeper
+          </label>
+          <label class="btn btn-secondary">
+            <input type="radio" name="options" id="option3" value="administrator"
+                   [(ngModel)]="role"> Administrator
+          </label>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+  </div>
+</ng-template>
+
+<ng-template #create let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title 2">Add Account: </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click');resetCreate()"></button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="mb-3">
+        <div class="alert alert-danger" role="alert" *ngIf="error === true">{{errorMsg}}</div>
+        <label for="usernameCreate">Username:</label>
+        <div class="input-group">
+          <input id="usernameCreate" class="form-control" type="text" name="usernameCreate" [(ngModel)]="usernameCreate"required>
+        </div>
+        <label for="passwordCreate">Password:</label>
+        <div class="input-group">
+          <input id="passwordCreate" name="passwordCreate" class="form-control" type="text" [(ngModel)]="passwordCreate"required>
+        </div>
+        <label for="emailCreate">Email:</label>
+        <div class="input-group">
+          <input id="emailCreate" class="form-control" type="text" name="emailCreate" [(ngModel)]="emailCreate"required>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="createAccount()">Save</button>
+  </div>
+</ng-template>
+  </div>
+</div>

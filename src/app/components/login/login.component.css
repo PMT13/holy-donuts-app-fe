@@ -1,0 +1,14 @@
+section{
+  background-image: url("https://images5.alphacoders.com/895/895287.jpg");
+}
+
+.guest{
+  cursor:pointer;
+  width: fit-content;
+  margin-left: auto;
+  margin-right:auto;
+}
+
+.guest:hover{
+  color: lightblue;
+}

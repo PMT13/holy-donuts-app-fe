@@ -1,0 +1,17 @@
+.bi-pencil-fill {
+  content: "\f4c9";
+  margin-right: 30%;
+}
+
+i{
+  cursor:pointer;
+}
+
+input{
+  margin-bottom:5%;
+  margin-top:1%;
+}
+
+.text-center{
+  margin-bottom: 1%;
+}

@@ -1,0 +1,94 @@
+<span class="move">
+  <h3> Profile </h3>
+<div class="col-md-6 col-xl-3">
+  <div class="alert alert-danger" role="alert" *ngIf="error === true">{{errorMsg}}</div>
+  <div class="card m-b-30">
+    <div class="card-body row">
+      <div class="col-6">
+        <a href=""><img src="https://cdn0.iconfinder.com/data/icons/pinterest-flat/48/Paul-17-512.png" alt="" class="img-fluid rounded-circle w-60"></a>
+      </div>
+      <div class="col-6 card-title align-self-center mb-0">
+        <label for="username">Username:</label>
+          <input id="username" class="form-control" type="text" name="username" placeholder="{{user.username}}" [(ngModel)]="username" required>
+          <label for="password">Password:</label>
+          <div class="input-group">
+            <input id="password" name="password" class="form-control" type="text" placeholder="{{user.password}}" [(ngModel)]="password" required>
+            <div>
+            <label for="email">Email:</label>
+              <input id="email" class="form-control" type="text" name="email" placeholder="{{user.email}}" [(ngModel)]="email" required>
+           </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <button type="button" class="btn btn-outline-dark" (click)="save()">Save</button>
+      <button type="button" class="btn btn-outline-dark" (click)="onDelete()">Delete</button>
+      <div class="float-right btn-group btn-group-sm">
+
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</span>
+
+<span class="text-center">
+<div class="container">
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-xl-8">
+      <div class="card">
+        <div class="card-header pb-0">
+          <div class="card-actions float-right">
+            <div class="dropdown show">
+              <a href="#" data-toggle="dropdown" data-display="static">
+              </a>
+            </div>
+          </div>
+          <h5 class="card-title mb-0">Order History</h5>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped" style="width:100%">
+            <thead>
+            <tr>
+              <th>Paid Amount:</th>
+              <th>Cart ID:</th>
+              <th>Purchased Items:</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let purchase of purchases.pastCarts">
+
+              <td>${{purchase.totalCost | number:'1.2-2'}}</td>
+              <td> {{purchase.id}}</td>
+              <div *ngFor="let products of purchase.products">
+              <td> ⦿{{products.name}}</td>
+              </div>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </div>
+</div>
+</div>
+    </span>
+
+
+<!--  <span class= "text-center">
+<div>
+  <h2> Order History</h2>
+  <div *ngFor="let purchase of purchases.pastCarts">
+    ${{purchase.totalCost | number:'1.2-2'}}
+    <div>
+    Cart {{purchase.id}}
+    </div>
+    <div *ngFor="let products of purchase.products">
+      {{products.name}}
+  </div>
+    <div> -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;</div>
+</div>
+</div>
+</span>-->
+

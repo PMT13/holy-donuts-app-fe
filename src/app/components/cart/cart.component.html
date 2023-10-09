@@ -1,0 +1,70 @@
+<div class="alert alert-danger text-center" role="alert" *ngIf="error === true">{{errorMessage}}</div>
+<div class="body">
+  <div *ngIf="isPurchase == false">
+  <ng-container *ngIf="emptyCart == false">
+    <div class="card-table text-center">
+      <div class="cart-product">
+        <table class="table table-responsive">
+
+          <tr>
+            <th>Product Name</th>
+            <th>Product Image</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Action</th>
+          </tr>
+
+          <tbody>
+          <tr *ngFor="let product of cartInfo.products">
+            <td class="col-md-3 align-middle">{{product.name}}</td>
+            <td class="col-md-3 align-middle"><img src="{{product.imgUrl}}"></td>
+            <td class="col-md-3 align-middle">{{product.description}}</td>
+            <td class="col-md-2 align-middle">${{product.price | number:'1.2-2'}}</td>
+            <td class="col-md-1 align-middle">
+              <button class="btn btn-danger" (click)="removeFromCart(product)">Remove</button>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="totalCost">Total: ${{cartInfo.totalCost | number:'1.2-2'}}</div>
+      <button class="btn btn-primary checkout" (click)="addPurchase()"><i class="bi bi-cart4"></i> Checkout ({{cartInfo.quantity}} items)</button>
+    </div>
+
+  </ng-container>
+  <ng-container *ngIf="emptyCart === true">
+    <div class="container">
+      <div class="card">
+      </div>
+      <div class="center">
+        <img src="" alt="">
+        <h4> Your cart is empty!</h4>
+        <h6> Add item to it now!</h6>
+        <button class ="btn btn-primary" (click)="backToStore()">Shop Now</button>
+      </div>
+    </div>
+  </ng-container>
+</div>
+</div>
+
+<div *ngIf="isPurchase == true">
+<div class="container mt-5 d-flex justify-content-center">
+<div class="card p-4 mt-3">
+  <div class="first d-flex justify-content-between align-items-center mb-3">
+    <div class="info">
+      <span class="d-block name">Thank You, {{user.username}}</span>
+      <span class="order">Order - {{user.cartId}}</span>
+
+    </div>
+
+    <img src="https://i.imgur.com/NiAVkEw.png" width="40"/>
+
+
+  </div>
+  <div class="detail">
+    <span class="d-block summery">Your order has been dispatched. we are delivering you order.</span>
+  </div>
+  <hr>
+</div>
+</div>
+</div>

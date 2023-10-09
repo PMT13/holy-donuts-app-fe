@@ -1,0 +1,45 @@
+{{errorMessage}}
+<div class="card shadow">
+  <div class="alert alert-success text-center" role="alert" *ngIf="alert === 'success'">{{alertMessage}}</div>
+  <div class="alert alert-danger text-center" role="alert" *ngIf="alert === 'warning'">{{alertMessage}}</div>
+  <div class="card-body">
+    <img *ngIf="!product.discontinued" src="{{product.imgUrl}}" class="card-img-top" alt="...">
+    <img *ngIf="product.discontinued" id="discontinuedProduct" src="{{product.imgUrl}}" class="card-img-top" alt="...">
+    <div *ngIf="product.discontinued==true"
+         class="bg-danger text-white small position-absolute end-0 top-0 px-2 py-2 lh-1 text-center">
+      <span class="d-block">DISCONTINUED</span>
+    </div>
+    <div *ngIf="product.discount !== 0"
+         class="bg-danger text-white small position-absolute end-0 top-0 px-2 py-2 lh-1 text-center">
+      <span class="d-block">{{product.discount}}% OFF</span>
+    </div>
+
+    <h6 class="card-title d-flex justify-content-between">
+      <div>{{product.name | titlecase}}</div>
+      <div>{{product.price | currency}}</div>
+    </h6>
+
+    <div>{{product.description}}</div>
+    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-tag"
+         viewBox="0 0 16 16">
+      <path d="M6 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm-1 0a.5.5 0 1 0-1 0 .5.5 0 0 0 1 0z"/>
+      <path
+        d="M2 1h4.586a1 1 0 0 1 .707.293l7 7a1 1 0 0 1 0 1.414l-4.586 4.586a1 1 0 0 1-1.414 0l-7-7A1 1 0 0 1 1 6.586V2a1 1 0 0 1 1-1zm0 5.586 7 7L13.586 9l-7-7H2v4.586z"/>
+    </svg>
+    <div *ngFor="let categories of product.category">
+      {{categories.category}}
+    </div>
+  </div>
+  <div class="card-footer text-muted text-center">
+    <div *ngIf="user.role == 'customer'">
+    <button *ngIf="!product.discontinued" (click)="addToCartClick(product)" class="btn btn-primary">
+      <div>Add To Cart</div>
+    </button>
+    </div>
+    <div *ngIf="user.role == 'shopkeeper'">
+    <button class="btn btn-primary" (click)="deleteProduct()">Delete</button>
+    <button class="btn btn-primary" (click)="updateProduct()">Update</button>
+  </div>
+  </div>
+
+</div>

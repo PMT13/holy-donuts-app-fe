@@ -1,0 +1,15 @@
+h2 {
+  margin-top: -320px;
+}
+.col-xl-8 {
+  flex: 0 0 auto;
+  width: 66.66666667%;
+  margin-left: 349px;
+  margin-top: -290px;
+}
+move {
+  margin-right: 100px
+}
+.card-body row {
+  background-color: greenyellow;
+}

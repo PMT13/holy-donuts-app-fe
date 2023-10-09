@@ -1,0 +1,13 @@
+.input-accordian{
+  padding: 10px;
+  width: 75%;
+}
+
+svg{
+  cursor:pointer;
+}
+
+#createProduct{
+  margin-top:auto;
+  margin-bottom: auto;
+}

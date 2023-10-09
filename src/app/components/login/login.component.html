@@ -1,0 +1,48 @@
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+          <div class="card-body p-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-5">
+
+              <h2 class="fw-bold mb-2 text-uppercase" *ngIf="isLogin === true">Login</h2>
+              <h2 class="fw-bold mb-2 text-uppercase" *ngIf="isLogin === false">Sign up</h2><br>
+              <div class="alert alert-danger" role="alert" *ngIf="error === true">{{errorMsg}}</div>
+
+              <div class="form-outline form-white mb-4" *ngIf="isLogin === false">
+                <input type="email" id="email" class="form-control form-control-lg" [(ngModel)]="email"/>
+                <label class="form-label" for="email">Email</label>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input type="text" id="username" class="form-control form-control-lg" [(ngModel)]="username"/>
+                <label class="form-label" for="username">Username</label>
+              </div>
+
+              <div class="form-outline form-white mb-4">
+                <input type="password" id="password" class="form-control form-control-lg" [(ngModel)]="password"/>
+                <label class="form-label" for="password">Password</label>
+              </div>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="login()" *ngIf="isLogin === true">Login</button>
+              <button class="btn btn-outline-light btn-lg px-5" type="submit" (click)="register()" *ngIf="isLogin === false">Sign up</button>
+            </div>
+            <div *ngIf="isLogin === true">
+              Don't have an account?
+              <button class="btn btn-outline-danger" (click)="changeLogin()">Sign Up</button>
+              <br>or
+              <br><p class="guest" (click)="continueAsGuest()">Continue as Guest</p>
+            </div>
+            <div *ngIf="isLogin === false">
+              Already have an account?
+              <button class="btn btn-outline-danger" (click)="changeLogin()">Login</button>
+              <br>or
+              <br><p class="guest" (click)="continueAsGuest()">Continue as Guest</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,11 @@
+<div *ngIf="!productToUpdate">
+<!--<div *ngIf="(!productToUpdate) && (!productToCreate)">-->
+  <app-product-list></app-product-list>
+</div>
+
+<div *ngIf="productToUpdate">
+<!--<div *ngIf="(productToUpdate) || (productToCreate)">-->
+  <app-product-input></app-product-input>
+</div>
+
+
