@@ -1,6 +1,7 @@
 # TeamProjectFe
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.8.
+This is the frontend for the web application, the backend for it can be found at 
 
 ## Development server
 
