@@ -26,3 +26,47 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## App Features
+
+### Login: 
+  
+  If user already has an account, they can use that username and password to login. If the user doesn't have an account yet, they can register a new account by typing in the email, username, and password they want and then clicking the register button once those fields are filled in. Duplicate account usernames cannot exist. Can also continue as guest but won't have access to all of the application's features. When registering, an account will have a customer role but there are three different roles an account can have: Administrator, Shopkeeper, or Customer. 
+
+![login](src/images/login.png)
+
+### Administrator:
+
+  Administrators have the power to edit and delete accounts on the application. 
+
+![accounts](src/images/accounts.png)
+![editAccount](src/images/editAccount.png)
+
+### Shopkeepers: 
+
+  Shopkeepers have the power to add products to the store and to edit or delete existing products. 
+
+![shopkeeper](src/images/shopkeeper.png)
+![addProduct](src/images/addProduct.png)
+
+### Customers: 
+
+  Customers can view the store, add products to their cart, edit their profile, and view their purchase history. 
+
+Store: 
+![shop](src/images/shop.png)
+
+Cart: 
+![cart](src/images/cart.png)
+
+Profile: 
+![profile](src/images/profile.png)
+
+
+
+
+
+
+
+
+  
